@@ -1,13 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
+import Collapse from "./components/Collapse/Collapse";
+import Login from "./components/Login/Login";
 
 function App() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload.{" "}
         </p>
         <a
           className="App-link"
@@ -17,6 +22,12 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          <Collapse isCollapsed={open}>
+            Now you can see the hidden content. Click again to hide ...
+          </Collapse>
+        </div>
+        <Login />
       </header>
     </div>
   );
